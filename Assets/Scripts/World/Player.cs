@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Player : Creature, ICameraFocusable, IKeyInputHandler
 {    
+    [SerializeField] private GameObject fire;
+
     #region KeyInput
 
     public void OnStartKeyInput() 
