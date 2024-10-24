@@ -1,5 +1,4 @@
 using System;
-using TheSTAR.Sound;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -25,7 +24,7 @@ namespace TheSTAR.GUI
         private Vector2 offset;
         private Vector2 currentClickPos;
 
-        [Inject] private SoundController _soundController;
+        //[Inject] private SoundController _soundController;
         private Action _clickAction;
         private Action _enterAction;
         private Action _exitAction;
@@ -59,7 +58,7 @@ namespace TheSTAR.GUI
         private void OnButtonEnter(PointerEventData eventData)
         {
             if (!_isInteractalbe) return;
-            if (currentInfo._useEnterSound && _soundController) _soundController.Play(currentInfo._enterSoundType);
+            //if (currentInfo._useEnterSound && _soundController) _soundController.Play(currentInfo._enterSoundType);
             
             _isEnter = true;
 
@@ -100,7 +99,7 @@ namespace TheSTAR.GUI
             }
 
             if (!_isInteractalbe) return;
-            if (currentInfo._useClickSound && _soundController) _soundController.Play(currentInfo._clickSoundType);
+            //if (currentInfo._useClickSound && _soundController) _soundController.Play(currentInfo._clickSoundType);
             
             _isDown = true;
             globalIsDown = true;
@@ -176,11 +175,11 @@ namespace TheSTAR.GUI
         {
             public bool _useEnterSound => false;
             //[ShowIf("_useEnterSound")] 
-            public SoundType _enterSoundType;
+            //public SoundType _enterSoundType;
 
             public bool _useClickSound;
             //[ShowIf("_useClickSound")] 
-            public SoundType _clickSoundType;
+            //public SoundType _clickSoundType;
             
             public bool _useChangeSprite;
             //[ShowIf("_useChangeSprite")] 

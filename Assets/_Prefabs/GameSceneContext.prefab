@@ -79,22 +79,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   worldCameraPrefab: {fileID: 6289751917837412217, guid: 1774df53470d14ad4981c6633d4de100, type: 3}
   gameControllerPrefab: {fileID: 7323282797601191091, guid: 1d4f5451e559c47dcaa7d6d843e2ea3f, type: 3}
-  bulletsContainerPrefab: {fileID: 8036635813461441321, guid: f805bdf1babf04201b5d8a463cac79ea, type: 3}
   playerPrefab: {fileID: 7452998440400282464, guid: 1528ab92f778a4480a936f508b11e382, type: 3}
   keyInputPrefab: {fileID: 3368194185070649104, guid: d95db192e21984a4ba84711bde86904f, type: 3}
-  itemsContainerPrefab: {fileID: 3510791917292305128, guid: 8b1f491f2eedd4c50be670a8a6a57dfb, type: 3}
-  enemiesContainerPrefab: {fileID: 5559843448045557930, guid: f7c4d29a5c50e40df8020c22afe6f5c8, type: 3}
   guiControllerPrefab: {fileID: 3393732523295581646, guid: c0611db02a3c248239e85f94284f46a2, type: 3}
   screenPrefabs:
-  - {fileID: 4992235435970099608, guid: 78cd67f5ff89044b3a5d85c8600bb07c, type: 3}
-  - {fileID: 6206188417071900033, guid: 9be99ed0a80e843bda5b43c335d7fed5, type: 3}
   - {fileID: 2793095468912130560, guid: 8b26207160bee4ed4aae60c0697ae72d, type: 3}
-  - {fileID: 8006252960503801496, guid: ced33bf74a59948f08b1125c69f1b18d, type: 3}
   - {fileID: 3175569552532464225, guid: b47a0392301eb45d0a3790c3f19ace25, type: 3}
-  - {fileID: 7695916075864817934, guid: 037d7b41c3c0d45919406da3ace0f1a7, type: 3}
-  - {fileID: 5838450412446096660, guid: 7c8fc7f38a20b41f3b4802654046a39b, type: 3}
-  universalElementPrefabs:
-  - {fileID: 3517451813486483024, guid: a3b2dfab47c234c6eb98c72d657c5aa6, type: 3}
-  - {fileID: 6198429222767947342, guid: 41bf14873294646859d61888d11ff4d4, type: 3}
-  tutorialControllerPrefab: {fileID: 1441552228603819432, guid: 664b2728a411241009d744ec825aff0f, type: 3}
-  flyUiContainerPrefab: {fileID: 6175411250007891447, guid: ca2cd59cee8904d76b3cb8118142d061, type: 3}
+  universalElementPrefabs: []

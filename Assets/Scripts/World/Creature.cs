@@ -6,10 +6,7 @@ using UnityEngine.AI;
 public abstract class Creature : MonoBehaviour
 {
     [SerializeField] private NavMeshAgent meshAgent;
-    [SerializeField] protected HpSystem hpSystem;
     [SerializeField] protected Transform visualTran;
-
-    public HpSystem HpSystem => hpSystem;
 
     protected void MoveTo(Vector2 direction)
     {
