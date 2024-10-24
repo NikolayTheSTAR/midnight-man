@@ -7,8 +7,19 @@ public class Player : Creature, ICameraFocusable, IKeyInputHandler
 {    
     [SerializeField] private GameObject fire;
     [SerializeField] private EntranceTrigger trigger;
+    [SerializeField] private Transform protectHandTran;
+
+    [Space]
+    [SerializeField] private Vector3 idleHandPos;
+    [SerializeField] private Vector3 idleHandRotation;
+    [SerializeField] private Vector3 protectHandPos;
+    [SerializeField] private Vector3 protectHandRotation;
 
     private Tweener slowFireEndTweener;
+
+    private bool enterDrops;
+    private bool enterWindow;
+    private bool protection;
 
     private void Start()
     {
@@ -33,21 +44,31 @@ public class Player : Creature, ICameraFocusable, IKeyInputHandler
     public void OnEndKeyInput() 
     {}
 
+    public void OnStartActionInput()
+    {
+        protection = true;
+        UpdateFireState();
+    }
+
+    public void OnEndActionInput()
+    {
+        protection = false;
+        UpdateFireState();
+    }
+
     #endregion
 
     private void OnEnter(Collider col)
     {
         if (col.CompareTag("Window"))
         {
-            slowFireEndTweener =
-            DOVirtual.Float(0f, 1f, 5f, (temp) => {}).OnComplete(() =>
-            {
-                fire.SetActive(false);
-            });
+            enterWindow = true;
+            UpdateFireState();
         }
         else if (col.CompareTag("Drops"))
         {
-            fire.SetActive(false);
+            enterDrops = true;
+            UpdateFireState();
         }
     }
 
@@ -55,7 +76,41 @@ public class Player : Creature, ICameraFocusable, IKeyInputHandler
     {
         if (col.CompareTag("Window"))
         {
+            enterWindow = false;
+            UpdateFireState();
+        }
+        else if (col.CompareTag("Drops"))
+        {
+            enterDrops = false;
+            UpdateFireState();
+        }
+    }
+
+    private void UpdateFireState()
+    {
+        if (protection)
+        {
+            protectHandTran.localPosition = protectHandPos;
+            protectHandTran.localEulerAngles = protectHandRotation;
             slowFireEndTweener?.Kill();
+        }
+        else
+        {
+            protectHandTran.localPosition = idleHandPos;
+            protectHandTran.localEulerAngles = idleHandRotation;
+
+            if (enterDrops)
+            {
+                fire.SetActive(false);
+            } 
+            else if (enterWindow)
+            {
+                slowFireEndTweener =
+                DOVirtual.Float(0f, 1f, 5f, (temp) => {}).OnComplete(() =>
+                {
+                    fire.SetActive(false);
+                });
+            }
         }
     }
 }

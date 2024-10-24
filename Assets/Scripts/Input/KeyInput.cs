@@ -65,6 +65,9 @@ public class KeyInput : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.S)) PressButton(DirectionType.Down, true);
         if (Input.GetKeyUp(KeyCode.S)) PressButton(DirectionType.Down, false);
 
+        if (Input.GetKeyDown(KeyCode.E)) keyInputHandler.OnStartActionInput();
+        if (Input.GetKeyUp(KeyCode.E)) keyInputHandler.OnEndActionInput();
+
         DoInput();
     }
 
@@ -146,6 +149,8 @@ public interface IKeyInputHandler
     void OnStartKeyInput();
     void KeyInput(Vector2 direction);
     void OnEndKeyInput();
+    void OnStartActionInput();
+    void OnEndActionInput();
 }
 
 public enum DirectionType
