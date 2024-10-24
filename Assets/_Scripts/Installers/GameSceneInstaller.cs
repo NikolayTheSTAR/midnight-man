@@ -14,7 +14,6 @@ public class GameSceneInstaller : MonoInstaller
     [SerializeField] private Player playerPrefab;
     [SerializeField] private KeyInput keyInputPrefab;
     [SerializeField] private ItemsInWorldContainer itemsContainerPrefab;
-    [SerializeField] private EnemiesContainer enemiesContainerPrefab;
 
     [Header("GUI")]
     [SerializeField] private GuiController guiControllerPrefab;
@@ -46,10 +45,7 @@ public class GameSceneInstaller : MonoInstaller
 
         var items = Container.InstantiatePrefabForComponent<ItemsInWorldContainer>(itemsContainerPrefab);
         Container.Bind<ItemsInWorldContainer>().FromInstance(items).AsSingle();
-
-        var enemies = Container.InstantiatePrefabForComponent<EnemiesContainer>(enemiesContainerPrefab);
-        Container.Bind<EnemiesContainer>().FromInstance(enemies).AsSingle();
-
+        
         var keyInput = Container.InstantiatePrefabForComponent<KeyInput>(keyInputPrefab);
         Container.Bind<KeyInput>().FromInstance(keyInput).AsSingle();
 
